@@ -42,3 +42,16 @@ if __name__ == '__main__':
     a = Solution()
     r = a.oddEvenList(pre.next)
     print(r)
+
+# Go through each of the node/edges pairs in the unsorted
+# graph. If a set of edges doesn't contain any nodes that
+# haven't been resolved, that is, that are still in the
+# unsorted graph, remove the pair from the unsorted graph,
+# and append it to the sorted graph. Note here that by using
+# using the items() method for iterating, a copy of the
+# unsorted graph is used, allowing us to modify the unsorted
+# graph as we move through it. We also keep a flag for
+# checking that that graph is acyclic, which is true if any
+# nodes are resolved during each pass through the graph. If
+# not, we need to bail out as the graph therefore can't be
+# sorted.
