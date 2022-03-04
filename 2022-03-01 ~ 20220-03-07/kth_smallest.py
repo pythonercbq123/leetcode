@@ -38,4 +38,3 @@ class Solution:
             if k == 0:
                 return root.val
             root = root.right
-            
