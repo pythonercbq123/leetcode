@@ -28,7 +28,7 @@ class MonotonicQueue:
         self.q.append(n)
 
     def max(self):
-        return max(self.q[0])
+        return self.q[0]
 
     def pop(self, n):
         if n == self.q[0]:
