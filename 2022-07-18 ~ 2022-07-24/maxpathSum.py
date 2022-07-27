@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Union
 
 
 class TreeNode:
@@ -11,7 +11,8 @@ class TreeNode:
 class Solution:
     max_sum = float('-inf')
 
-    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+    def maxPathSum(self, root: Optional[TreeNode]) -> Union[int, float]:
+
         if root is None:
             return 0
 
@@ -24,5 +25,6 @@ class Solution:
             total = node.val + max_left + max_right
             self.max_sum = max(self.max_sum, total)
             return max(max_left + node.val, max_right + node.val)
+
         max_gain(root)
         return self.max_sum
