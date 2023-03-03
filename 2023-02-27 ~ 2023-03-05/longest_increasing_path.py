@@ -10,7 +10,7 @@ class Solution:
         for i in range(r):
             for j in range(c):
                 if lengths[i][j] == 0:
-                    path = self.dfs(matrix, lengths, i, j)
+                    path = self.dfs(matrix, lengths, i, j) 
                     longest_path = max(longest_path, path)
         return longest_path
 
