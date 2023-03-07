@@ -15,7 +15,7 @@ class Solution:
         return count
 
     def find_father(self, fathers, i):
-        while fathers[i] != i:
+        if fathers[i] != i:
             fathers[i] = self.find_father(fathers, fathers[i])
         # 注意这边 路径压缩
         return fathers[i]
