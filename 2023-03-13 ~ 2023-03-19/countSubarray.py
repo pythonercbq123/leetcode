@@ -5,6 +5,7 @@ class Solution:
     def count_sub_arrays(self, nums: List[int], k: int) -> int:
         # 思路hash表 + 前缀和
         # nums中每个数字不一样
+        # nums是排序数组
         _sum = 0
         counter = {0: 1}
         count = 0
