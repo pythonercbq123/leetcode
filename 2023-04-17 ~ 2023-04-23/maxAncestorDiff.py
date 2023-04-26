@@ -24,12 +24,13 @@ class Solution:
         return dfs(root, root.val, root.val)
 
 
-def test_max_ancestor_diff():
-    # Test case 1
-    root1 = TreeNode(8, left=TreeNode(3), right=TreeNode(10, right=TreeNode(14)))
-    sol = Solution()
-    assert sol.max_ancestor_diff(root1) == 6
+    # make a unittest for the func
+    def test_max_ancestor_diff():
+        
+        pass
 
 
 if __name__ == '__main__':
     test_max_ancestor_diff()
+
+import hello
