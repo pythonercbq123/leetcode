@@ -1,13 +1,15 @@
 from typing import List
 
+
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
-        ans, max_cost  = logs[0]
+        ans, max_cost = logs[0]
         for i in range(1, len(logs)):
-            idi, cost = logs[i][0], logs[i][1] - logs[i-1][1]
+            idi, cost = logs[i][0], logs[i][1] - logs[i - 1][1]
             if cost > max_cost or (cost == max_cost and idi < ans):
                 ans, max_cost = idi, cost
         return ans
+
 
 if __name__ == '__main__':
     # test for hardestWorker
