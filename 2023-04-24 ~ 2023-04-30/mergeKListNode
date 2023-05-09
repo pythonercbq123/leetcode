@@ -1,0 +1,90 @@
+
+class ListNode:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+
+# 合并k排序链表
+def mergeKListNode(lists):
+    if not lists:
+        return None
+    if len(lists) == 1:
+        return lists[0]
+    mid = len(lists) // 2
+    left = mergeKListNode(lists[:mid])
+    right = mergeKListNode(lists[mid:])
+    return mergeTwoListNode(left, right)
+
+def mergeTwoListNode(l1, l2):
+    dummy = ListNode(0)
+    cur = dummy
+    while l1 and l2:
+        if l1.val <= l2.val:
+            cur.next = ListNode(l1.val)
+            l1 = l1.next
+        else:
+            cur.next = ListNode(l2.val)
+            l2 = l2.next
+        cur = cur.next
+    if l1:
+        cur.next = l1
+    if l2:
+        cur.next = l2
+    return dummy.nextiw
+
+
+# 有N个城市 （城市1， 城市2，... 城市N) 以及若干条道路
+# 每条道路连接两个城市，道路的形式(i, j) 现在你最多修建两条道路来保证城市1可以到达城市N, 修路的费用为（i -j)^2, 请给出最小的修路费用
+# 例子：
+# 输入：
+# N = 4
+# roads = [[1, 2], [3, 4], [1, 3], [2, 3], [1, 4]]
+# 输出： 3
+# 解释：
+# 最优方案为修建道路[1, 4], [2, 3], 总费用为（1-4)^2 + (2-3)^2 = 1 + 4 = 5
+# 
+# 
+# 1. 暴力解法
+# 2. bfs
+# 3. dfs
+# 4. 并查集
+
+
+# a-z分别代表1-26，给定一个字符串，求出所有的可能的字符串
+# 例子：
+# 输入： "123"
+# 输出： ["abc", "aw", "lc"]
+# 解释：
+# 1 -> a, 2 -> b, 3 -> c
+# 1 -> a, 23 -> w
+# 12 -> l, 3 -> c
+def findPossibleStrings(s):
+    res = []
+    def dfs(s, path):
+        if not s:
+            res.append(path)
+            return
+        for i in range(1, len(s)+1):
+            if int(s[:i]) <= 26:
+                dfs(s[i:], path + chr(int(s[:i])+96))
+    dfs(s, "")
+    return res
+
+
+# make a test func for findPossibleStrings
+def test_findPossibleStrings():
+    s = "123"
+    res = findPossibleStrings(s)
+    print(res)
+
+# explain the func of findPossibleStrings
+def explain_findPossibleStrings():
+    print("a-z分别代表1-26，给定一个字符串，求出所有的可能的字符串")
+    print("例子：")
+    print("输入： \"123\"")
+    print("输出： [\"abc\", \"aw\", \"lc\"]")
+    print("解释：")
+    print("1 -> a, 2 -> b, 3 -> c")
+    print("1 -> a, 23 -> w")
+    print("12 -> l, 3 -> c")
+    
