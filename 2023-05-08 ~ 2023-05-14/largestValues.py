@@ -50,8 +50,6 @@ class Solution:
                 max_val = 0
         return res
 
-        return ans
-
     def lowest_layer_left(self, root: TreeNode) -> List[int]:
         # 找到二叉树最下层的最左边的值
         queue1 = deque()
