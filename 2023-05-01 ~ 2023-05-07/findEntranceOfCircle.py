@@ -31,20 +31,24 @@ class Solution:
             fast = fast.next
         return slow
 
-    def findEntranceInCircle2(self, head: ListNode):
-        if head is None or head.next is None:
-            return None
-        fast = head
-        slow = head
-        print(id(fast))
-        print(id(slow))
-        while fast is not None and fast.next is not None:
-            fast = fast.next.next
-            slow = slow.next
-            if fast == slow:
-                break
-        fast = head
-        while fast != slow:
-            fast = fast.next
-            slow = slow.next
-        return slow
+def findEntranceInCircle3(self, head: ListNode) -> ListNode:
+    if head is None or head.next is None:
+        return None
+    fast = head
+    slow = head
+    while fast is not None and fast.next is not None:
+        fast = fast.next.next
+        slow = slow.next
+        if fast == slow:
+            break
+    # the first while loop is to detect whether there is a circle in the linked list
+    # if there is no circle, fast will be None, and the function will return None
+    # if there is a circle, fast and slow will meet
+    # in the second while loop, we let fast go back to the head
+    # and let fast and slow move at the same speed
+    # when they meet again, it is the entrance of the circle
+    fast = head
+    while fast != slow:
+        fast = fast.next
+        slow = slow.next
+    return slow
